@@ -1,0 +1,83 @@
+[
+  {
+    "id": "person-001",
+    "name": "Sarah Mitchell",
+    "title": "Senior Software Engineer",
+    "email": "s.mitchell@example-corp.com",
+    "source": "LinkedIn",
+    "confidence": "high",
+    "discovered": "2025-10-01T09:23:00Z",
+    "socialProfiles": [
+      {"platform": "LinkedIn", "url": "linkedin.com/in/sarahmitchell", "followers": 842},
+      {"platform": "GitHub", "url": "github.com/smitchell", "repos": 23},
+      {"platform": "Twitter", "url": "twitter.com/sarahmitch", "followers": 312}
+    ],
+    "leakedData": [
+      {"source": "DataBreach2023", "type": "email", "date": "2023-06-15"}
+    ],
+    "tags": ["engineering", "backend", "high-priority"]
+  },
+  {
+    "id": "person-002",
+    "name": "Michael Chang",
+    "title": "VP of Engineering",
+    "email": "m.chang@example-corp.com",
+    "source": "Company Website",
+    "confidence": "high",
+    "discovered": "2025-10-01T09:45:00Z",
+    "socialProfiles": [
+      {"platform": "LinkedIn", "url": "linkedin.com/in/mchang", "followers": 2341},
+      {"platform": "Twitter", "url": "twitter.com/mchang_vp", "followers": 1823}
+    ],
+    "leakedData": [],
+    "tags": ["leadership", "c-level", "high-value"]
+  },
+  {
+    "id": "person-003",
+    "name": "Jennifer Lopez",
+    "title": "DevOps Engineer",
+    "email": "j.lopez@example-corp.com",
+    "source": "GitHub",
+    "confidence": "medium",
+    "discovered": "2025-10-02T11:12:00Z",
+    "socialProfiles": [
+      {"platform": "GitHub", "url": "github.com/jlopez", "repos": 47},
+      {"platform": "LinkedIn", "url": "linkedin.com/in/jenniferlopez", "followers": 523}
+    ],
+    "leakedData": [
+      {"source": "PasteLeaks2024", "type": "credentials", "date": "2024-03-22"}
+    ],
+    "tags": ["devops", "infrastructure"]
+  },
+  {
+    "id": "person-004",
+    "name": "David Chen",
+    "title": "Security Analyst",
+    "email": "d.chen@example-corp.com",
+    "source": "Conference Speaker List",
+    "confidence": "high",
+    "discovered": "2025-10-02T14:33:00Z",
+    "socialProfiles": [
+      {"platform": "LinkedIn", "url": "linkedin.com/in/davidchen", "followers": 1234},
+      {"platform": "Twitter", "url": "twitter.com/dchen_sec", "followers": 891}
+    ],
+    "leakedData": [],
+    "tags": ["security", "blue-team"]
+  },
+  {
+    "id": "person-005",
+    "name": "Emily Rodriguez",
+    "title": "Frontend Developer",
+    "email": "e.rodriguez@example-corp.com",
+    "source": "LinkedIn",
+    "confidence": "high",
+    "discovered": "2025-10-03T08:15:00Z",
+    "socialProfiles": [
+      {"platform": "LinkedIn", "url": "linkedin.com/in/emilyrodriguez", "followers": 645},
+      {"platform": "GitHub", "url": "github.com/erodriguez", "repos": 18},
+      {"platform": "Dribbble", "url": "dribbble.com/emilyrodriguez", "followers": 234}
+    ],
+    "leakedData": [],
+    "tags": ["frontend", "ui-ux"]
+  }
+]

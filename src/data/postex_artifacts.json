@@ -1,0 +1,102 @@
+[
+  {
+    "id": "artifact-001",
+    "name": "payload_v1.exe",
+    "type": "executable",
+    "hash": "a3b2c1d4e5f6789012345678abcdef01",
+    "size": "245KB",
+    "created": "2025-10-15T09:30:00Z",
+    "labRun": "run-2025-10-15-001",
+    "detectionResult": {
+      "detected": 2,
+      "total": 12,
+      "vendors": ["Vendor-A (synthetic)", "Vendor-G (synthetic)"],
+      "note": "DEMO ONLY - Synthetic test results"
+    },
+    "metadata": {
+      "obfuscation": "Basic packing",
+      "capabilities": ["Network scan", "File enumeration"],
+      "ioc": ["TCP/445", "SMB enumeration"]
+    }
+  },
+  {
+    "id": "artifact-002",
+    "name": "recon_script.ps1",
+    "type": "script",
+    "hash": "9f8e7d6c5b4a321098765432fedcba98",
+    "size": "12KB",
+    "created": "2025-10-15T10:45:00Z",
+    "labRun": "run-2025-10-15-002",
+    "detectionResult": {
+      "detected": 4,
+      "total": 12,
+      "vendors": ["Vendor-B (synthetic)", "Vendor-D (synthetic)", "Vendor-H (synthetic)", "Vendor-K (synthetic)"],
+      "note": "DEMO ONLY - Synthetic test results"
+    },
+    "metadata": {
+      "obfuscation": "Variable renaming",
+      "capabilities": ["AD enumeration", "User discovery"],
+      "ioc": ["LDAP queries", "WMI calls"]
+    }
+  },
+  {
+    "id": "artifact-003",
+    "name": "lateral_move.dll",
+    "type": "library",
+    "hash": "1a2b3c4d5e6f7890abcdef0123456789",
+    "size": "189KB",
+    "created": "2025-10-16T14:20:00Z",
+    "labRun": "run-2025-10-16-001",
+    "detectionResult": {
+      "detected": 1,
+      "total": 12,
+      "vendors": ["Vendor-F (synthetic)"],
+      "note": "DEMO ONLY - Synthetic test results"
+    },
+    "metadata": {
+      "obfuscation": "Advanced packing + encoding",
+      "capabilities": ["Process injection", "Token manipulation"],
+      "ioc": ["CreateRemoteThread", "OpenProcess"]
+    }
+  },
+  {
+    "id": "artifact-004",
+    "name": "persistence.vbs",
+    "type": "script",
+    "hash": "fedcba9876543210abcdef0123456789",
+    "size": "8KB",
+    "created": "2025-10-16T16:35:00Z",
+    "labRun": "run-2025-10-16-002",
+    "detectionResult": {
+      "detected": 6,
+      "total": 12,
+      "vendors": ["Vendor-A (synthetic)", "Vendor-C (synthetic)", "Vendor-E (synthetic)", "Vendor-G (synthetic)", "Vendor-I (synthetic)", "Vendor-L (synthetic)"],
+      "note": "DEMO ONLY - Synthetic test results"
+    },
+    "metadata": {
+      "obfuscation": "Base64 encoding",
+      "capabilities": ["Registry modification", "Scheduled task"],
+      "ioc": ["HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"]
+    }
+  },
+  {
+    "id": "artifact-005",
+    "name": "data_exfil.py",
+    "type": "script",
+    "hash": "abcd1234efgh5678ijkl9012mnop3456",
+    "size": "15KB",
+    "created": "2025-10-17T11:15:00Z",
+    "labRun": "run-2025-10-17-001",
+    "detectionResult": {
+      "detected": 0,
+      "total": 12,
+      "vendors": [],
+      "note": "DEMO ONLY - Synthetic test results"
+    },
+    "metadata": {
+      "obfuscation": "String obfuscation + compression",
+      "capabilities": ["File archiving", "DNS tunneling"],
+      "ioc": ["Unusual DNS queries", "Archive creation"]
+    }
+  }
+]

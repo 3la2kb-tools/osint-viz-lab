@@ -1,73 +1,122 @@
-# Welcome to your Lovable project
+# OSIntric - Red Team Collaboration Platform
 
-## Project info
+## Overview
 
-**URL**: https://lovable.dev/projects/d85431ac-3f39-4f84-892d-fdc7361c5263
+OSIntric is a polished, production-ready UI mockup for a red-team collaboration web application. This is a **static demonstration** with realistic mock data - no live scanning, data collection, or backend functionality.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+### Three Main Sections
 
-**Use Lovable**
+1. **Reconnaissance** - View discovered people and social profiles with detail sidebars
+2. **Vulnerability Assessment** - Browse findings in table view or triage via Kanban board
+3. **Post-Exploitation** - Examine synthetic test artifacts with mock detection results
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d85431ac-3f39-4f84-892d-fdc7361c5263) and start prompting.
+### Additional Features
 
-Changes made via Lovable will be committed automatically to this repo.
+- Project dashboard with statistics and activity feed
+- Collaboration features (comments, activity stream, assignments)
+- Dark theme security-focused design
+- Responsive layout (desktop-first, 1280px container)
 
-**Use your preferred IDE**
+## Technology Stack
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **React 18** with TypeScript
+- **Vite** for fast development
+- **Tailwind CSS** for styling
+- **shadcn/ui** component library
+- **Lucide React** for icons
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Mock Data
 
-Follow these steps:
+All data is synthetic and located in `src/data/`:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- `projects.json` - 3 mock projects
+- `recon_people.json` - 5+ discovered people with social profiles
+- `vuln_findings.json` - 8+ vulnerability findings
+- `postex_artifacts.json` - 5+ test artifacts with detection results
+- `activity.json` - Recent activity stream
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+**Important:** All leaked data, credentials, malware names, and detection results are completely synthetic and safe.
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Getting Started
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### Prerequisites
+
+- Node.js 16+ and npm
+
+### Installation
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build for Production
 
-**Use GitHub Codespaces**
+```bash
+npm run build
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project Structure
 
-## What technologies are used for this project?
+```
+src/
+├── components/
+│   ├── ui/              # shadcn/ui components
+│   └── AppLayout.tsx    # Main layout with header and nav
+├── data/                # Mock JSON data files
+├── pages/
+│   ├── Dashboard.tsx         # Project list and stats
+│   ├── ProjectOverview.tsx   # Single project overview
+│   ├── Reconnaissance.tsx    # People discovery view
+│   ├── Vulnerabilities.tsx   # Findings table + Kanban
+│   └── PostExploitation.tsx  # Artifacts viewer
+├── App.tsx              # Routing configuration
+└── index.css            # Design system tokens
+```
 
-This project is built with:
+## Design System
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+The application uses a dark, security-focused theme with:
 
-## How can I deploy this project?
+- **Colors**: Deep navy backgrounds, cyan primary, severity-coded badges (red/orange/yellow/green)
+- **Typography**: Inter for UI, JetBrains Mono for technical data
+- **Components**: Consistent spacing, hover states, and focus indicators
+- All colors defined as HSL tokens in `src/index.css`
 
-Simply open [Lovable](https://lovable.dev/projects/d85431ac-3f39-4f84-892d-fdc7361c5263) and click on Share -> Publish.
+## Customization
 
-## Can I connect a custom domain to my Lovable project?
+### Editing Mock Data
 
-Yes, you can!
+Edit JSON files in `src/data/` to change displayed information. All fields are self-explanatory.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Changing Theme
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Update CSS variables in `src/index.css` under `:root` (light) or `.dark` (dark mode).
+
+### Adding Pages
+
+1. Create new page component in `src/pages/`
+2. Add route in `src/App.tsx`
+3. Add navigation link in `src/components/AppLayout.tsx` if needed
+
+## Legal & Safety Notes
+
+- This is a **demo/mockup only** - no real scanning or data collection
+- All displayed data is synthetic and safe
+- Real red team operations require proper authorization, legal agreements, and controlled environments
+- The Post-Exploitation section includes prominent disclaimers about synthetic results
+
+## License
+
+This project is a demonstration/mockup. Refer to your organization's policies for usage.
+
+## Support
+
+For questions about this mockup, contact your project administrator.

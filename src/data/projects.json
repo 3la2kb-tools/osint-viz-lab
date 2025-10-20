@@ -1,0 +1,53 @@
+[
+  {
+    "id": "proj-001",
+    "name": "Project Nightshade",
+    "target": "example-corp.com",
+    "status": "active",
+    "created": "2025-09-15T10:30:00Z",
+    "lastActivity": "2025-10-18T14:22:00Z",
+    "team": ["Alice Chen", "Bob Smith", "Carol Wang"],
+    "stats": {
+      "people": 42,
+      "assets": 87,
+      "findings": 134,
+      "critical": 8
+    },
+    "scope": ["*.example-corp.com", "10.0.0.0/24"],
+    "ndaFlag": true
+  },
+  {
+    "id": "proj-002",
+    "name": "Project Falcon",
+    "target": "testdomain.io",
+    "status": "active",
+    "created": "2025-08-22T09:00:00Z",
+    "lastActivity": "2025-10-19T11:45:00Z",
+    "team": ["David Lee", "Emma Johnson"],
+    "stats": {
+      "people": 28,
+      "assets": 54,
+      "findings": 89,
+      "critical": 3
+    },
+    "scope": ["*.testdomain.io"],
+    "ndaFlag": false
+  },
+  {
+    "id": "proj-003",
+    "name": "Project Ironclad",
+    "target": "secureco.net",
+    "status": "completed",
+    "created": "2025-07-10T08:15:00Z",
+    "lastActivity": "2025-09-30T16:00:00Z",
+    "team": ["Frank Martinez", "Grace Kim", "Henry Davis"],
+    "stats": {
+      "people": 65,
+      "assets": 122,
+      "findings": 201,
+      "critical": 12
+    },
+    "scope": ["*.secureco.net", "192.168.0.0/16"],
+    "ndaFlag": true
+  }
+]

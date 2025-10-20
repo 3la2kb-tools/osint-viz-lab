@@ -1,0 +1,66 @@
+[
+  {
+    "id": "activity-001",
+    "type": "finding_created",
+    "user": "Alice Chen",
+    "timestamp": "2025-10-19T14:22:00Z",
+    "description": "Created critical finding: SQL Injection in Login Form",
+    "target": "finding-001"
+  },
+  {
+    "id": "activity-002",
+    "type": "comment_added",
+    "user": "Bob Smith",
+    "timestamp": "2025-10-19T13:45:00Z",
+    "description": "Added comment on finding: Outdated OpenSSL Version",
+    "target": "finding-003"
+  },
+  {
+    "id": "activity-003",
+    "type": "status_changed",
+    "user": "Carol Wang",
+    "timestamp": "2025-10-19T12:30:00Z",
+    "description": "Moved finding to Exploitable: Server-Side Request Forgery",
+    "target": "finding-007"
+  },
+  {
+    "id": "activity-004",
+    "type": "person_tagged",
+    "user": "Alice Chen",
+    "timestamp": "2025-10-19T11:15:00Z",
+    "description": "Tagged person as high-priority: Sarah Mitchell",
+    "target": "person-001"
+  },
+  {
+    "id": "activity-005",
+    "type": "artifact_uploaded",
+    "user": "Bob Smith",
+    "timestamp": "2025-10-19T10:00:00Z",
+    "description": "Uploaded test artifact: payload_v1.exe",
+    "target": "artifact-001"
+  },
+  {
+    "id": "activity-006",
+    "type": "scan_imported",
+    "user": "Carol Wang",
+    "timestamp": "2025-10-18T16:45:00Z",
+    "description": "Imported scan results (mock): Nessus scan - 45 new findings",
+    "target": null
+  },
+  {
+    "id": "activity-007",
+    "type": "assignment",
+    "user": "Alice Chen",
+    "timestamp": "2025-10-18T15:20:00Z",
+    "description": "Assigned finding to Bob Smith: Weak JWT Secret Configuration",
+    "target": "finding-004"
+  },
+  {
+    "id": "activity-008",
+    "type": "remediation",
+    "user": "Alice Chen",
+    "timestamp": "2025-10-18T14:00:00Z",
+    "description": "Marked as remediated: Insecure Direct Object Reference",
+    "target": "finding-005"
+  }
+]
