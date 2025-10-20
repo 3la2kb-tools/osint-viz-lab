@@ -4,6 +4,8 @@ import AppLayout from "@/components/AppLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import { BarChart, Bar, PieChart, Pie, Cell, AreaChart, Area, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Legend } from "recharts";
 import projects from "@/data/projects.json";
 import activity from "@/data/activity.json";
 
@@ -18,6 +20,44 @@ const Dashboard = () => {
     }),
     { people: 0, assets: 0, findings: 0, critical: 0 }
   );
+
+  // Chart data: Project Status Distribution
+  const statusData = [
+    { name: "Active", value: projects.filter(p => p.status === "active").length, color: "hsl(var(--success))" },
+    { name: "Completed", value: projects.filter(p => p.status === "completed").length, color: "hsl(var(--muted-foreground))" },
+  ];
+
+  // Chart data: Findings by Severity
+  const severityData = [
+    { 
+      severity: "Critical", 
+      count: projects.reduce((sum, p) => sum + p.stats.critical, 0),
+      fill: "hsl(var(--critical))"
+    },
+    { 
+      severity: "High", 
+      count: Math.floor(totalStats.findings * 0.25),
+      fill: "hsl(var(--high))"
+    },
+    { 
+      severity: "Medium", 
+      count: Math.floor(totalStats.findings * 0.35),
+      fill: "hsl(var(--medium))"
+    },
+    { 
+      severity: "Low", 
+      count: totalStats.findings - projects.reduce((sum, p) => sum + p.stats.critical, 0) - Math.floor(totalStats.findings * 0.25) - Math.floor(totalStats.findings * 0.35),
+      fill: "hsl(var(--low))"
+    },
+  ];
+
+  // Chart data: Activity Timeline (mock weekly data)
+  const timelineData = [
+    { week: "Week 1", findings: 45, assets: 28 },
+    { week: "Week 2", findings: 68, assets: 42 },
+    { week: "Week 3", findings: 89, assets: 56 },
+    { week: "Week 4", findings: 134, assets: 87 },
+  ];
 
   return (
     <AppLayout>
@@ -84,6 +124,113 @@ const Dashboard = () => {
               <p className="text-xs text-muted-foreground">
                 Require immediate attention
               </p>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Charts Section */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {/* Project Status Chart */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Project Status</CardTitle>
+              <CardDescription>Distribution of active and completed projects</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ChartContainer
+                config={{
+                  active: { label: "Active", color: "hsl(var(--success))" },
+                  completed: { label: "Completed", color: "hsl(var(--muted-foreground))" },
+                }}
+                className="h-[200px]"
+              >
+                <PieChart>
+                  <Pie
+                    data={statusData}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={50}
+                    outerRadius={80}
+                    paddingAngle={2}
+                    dataKey="value"
+                  >
+                    {statusData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                  <ChartTooltip content={<ChartTooltipContent />} />
+                </PieChart>
+              </ChartContainer>
+              <div className="flex justify-center gap-4 mt-4 text-sm">
+                {statusData.map((item) => (
+                  <div key={item.name} className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: item.color }} />
+                    <span className="text-muted-foreground">{item.name}: {item.value}</span>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Findings by Severity Chart */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Findings by Severity</CardTitle>
+              <CardDescription>Breakdown of all vulnerability findings</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ChartContainer
+                config={{
+                  count: { label: "Findings", color: "hsl(var(--primary))" },
+                }}
+                className="h-[200px]"
+              >
+                <BarChart data={severityData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="severity" stroke="hsl(var(--muted-foreground))" />
+                  <YAxis stroke="hsl(var(--muted-foreground))" />
+                  <ChartTooltip content={<ChartTooltipContent />} />
+                  <Bar dataKey="count" radius={[4, 4, 0, 0]} />
+                </BarChart>
+              </ChartContainer>
+            </CardContent>
+          </Card>
+
+          {/* Activity Timeline Chart */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Activity Timeline</CardTitle>
+              <CardDescription>Cumulative findings and assets discovered</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ChartContainer
+                config={{
+                  findings: { label: "Findings", color: "hsl(var(--primary))" },
+                  assets: { label: "Assets", color: "hsl(var(--success))" },
+                }}
+                className="h-[200px]"
+              >
+                <AreaChart data={timelineData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="week" stroke="hsl(var(--muted-foreground))" />
+                  <YAxis stroke="hsl(var(--muted-foreground))" />
+                  <ChartTooltip content={<ChartTooltipContent />} />
+                  <Area 
+                    type="monotone" 
+                    dataKey="findings" 
+                    stroke="hsl(var(--primary))" 
+                    fill="hsl(var(--primary) / 0.2)" 
+                    strokeWidth={2}
+                  />
+                  <Area 
+                    type="monotone" 
+                    dataKey="assets" 
+                    stroke="hsl(var(--success))" 
+                    fill="hsl(var(--success) / 0.2)" 
+                    strokeWidth={2}
+                  />
+                </AreaChart>
+              </ChartContainer>
             </CardContent>
           </Card>
         </div>
